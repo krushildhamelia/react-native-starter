@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, TouchableOpacity, View, StyleSheet,Dimensions } from 'react-native';
+import {Text, TouchableOpacity, View, StyleSheet,Dimensions, ScrollView } from 'react-native';
 
 export default class List extends Component{
     state = {
@@ -10,7 +10,17 @@ export default class List extends Component{
             }, {
                 id: 2,
                 name: "Selena Gomez"
-            }
+            },
+            {'name': 'Robert', 'id': 3},
+            {'name': 'Mary', 'id': 4},
+            {'name': 'Daniel', 'id': 5},
+            {'name': 'Laura', 'id': 6},
+            {'name': 'John', 'id': 7},
+            {'name': 'Debra', 'id': 8},
+            {'name': 'Aron', 'id': 9},
+            {'name': 'Ann', 'id': 10},
+            {'name': 'Steve', 'id': 11},
+            {'name': 'Olivia', 'id': 12}
         ]
     };
 
@@ -20,20 +30,36 @@ export default class List extends Component{
 
     render(){
         return (
-            <View style={styles.container}>
-                {
-                    this.state.names.map((item,index) => {
-                        return (
-                        <TouchableOpacity 
-                            key={item.id}
-                            style={styles.list}
-                            onPress={ () => this.alertItemSelected(item) }>
-                                <Text style={styles.text}> { item.name } </Text>
-                        </TouchableOpacity>
-                        );
-                    })
-                }
-            </View>
+            <ScrollView>
+                <View style={styles.container}>
+                    {
+                        this.state.names.map((item,index) => {
+                            return (
+                            <TouchableOpacity 
+                                key={item.id}
+                                style={styles.list}
+                                onPress={ () => this.alertItemSelected(item) }>
+                                    <Text style={styles.text}> { item.name } </Text>
+                            </TouchableOpacity>
+                            );
+                        })
+                    }
+                </View>
+                <ScrollView style={ {backgroundColor : 'skyblue'} }>
+                    {
+                        this.state.names.map((item,index) => {
+                            return (
+                            <View 
+                                key={item.id}
+                                style={styles.list}
+                                onPress={ () => this.alertItemSelected(item) }>
+                                    <Text style={styles.text}> { item.name } </Text>
+                            </View>
+                            );
+                        })
+                    }
+                </ScrollView>
+            </ScrollView>
         );
     }
 }
