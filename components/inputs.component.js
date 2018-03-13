@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
-import { Text, View, ScrollView, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, TextInput, TouchableOpacity, StyleSheet, TouchableHighlight, 
+    Button, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
 
 export default class Inputs extends Component{
     state = {
@@ -22,7 +23,7 @@ export default class Inputs extends Component{
             <View>
                     <TextInput 
                         placeholder="Email"
-                        autoFocus="true"
+                        autoFocus={ true }
                         keyboardType="email-address"
                         underlineColorAndroid="transparent"
                         autoCapitalize="none"
@@ -43,14 +44,51 @@ export default class Inputs extends Component{
                     >
                     </TextInput>
 
+                    <TouchableHighlight
+                        style={styles.button}
+                        onPress={ () => this.login() }
+                        >
+                        <Text>
+                            Login Button Highlight
+                        </Text>
+                    </TouchableHighlight>
+
                     <TouchableOpacity
                         style={styles.button}
                         onPress={ () => this.login() }
                         >
                         <Text>
-                            Login
+                            Login Button opacity
                         </Text>
                     </TouchableOpacity>
+
+                    <TouchableNativeFeedback
+                        onPress={ () => this.login() }
+                        >
+                        <Text style={styles.button}>
+                            Login Button With Feedback
+                        </Text>
+                    </TouchableNativeFeedback>
+
+                    <TouchableWithoutFeedback
+                        onPress={ () => this.login() }
+                        >
+                        <View>
+                            <Text style={styles.button}>
+                                Login Button Without Feedback
+                            </Text>
+                        </View>
+                    </TouchableWithoutFeedback>
+
+                    <Button
+                        style={styles.button}
+                        onPress={ () => this.login() }
+                        title="Login Button Button"
+                        color="red"
+                        style={styles.button}
+                        >
+                            Login Button opacity
+                    </Button>
             </View>
         );
     }

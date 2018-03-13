@@ -1,9 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
-import { View,Text, ScrollView, StyleSheet } from 'react-native';
+import { View,Text, ScrollView, StyleSheet, Dimensions } from 'react-native';
 import Presentational from './presentational.component';
 import ListComp from './list.component';
 import Inputs from "./inputs.component";
+import UsersList from './users.list';
 
 export default class Home extends Component{
     constructor(props){
@@ -18,6 +19,7 @@ export default class Home extends Component{
     render(){
         return (
             <ScrollView style={{flex: 1}}>
+                <UsersList style={{ width: Dimensions.get("window").width }}/>
                 <Inputs style={styles.container} />
                 <Presentational style={styles.container} updateState={this.updateState} myState={this.state.myState} />
                 <ListComp style={{flex: 1}} style={styles.container} />
