@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, TouchableOpacity, View, StyleSheet,Dimensions, ScrollView } from 'react-native';
+import {Text, TouchableOpacity, View, StyleSheet,Dimensions, ScrollView, Image } from 'react-native';
 
 export default class List extends Component{
     state = {
@@ -58,6 +58,11 @@ export default class List extends Component{
                             );
                         })
                     }
+                    <Image source = {require('../images/person.png') } >
+                    </Image>
+                    <Image source = { {uri : 'https://pbs.twimg.com/profile_images/486929358120964097/gNLINY67_400x400.png'} } 
+                        style= { { width: 400, height: 400 }  }>
+                    </Image>
                 </ScrollView>
             </ScrollView>
         );
