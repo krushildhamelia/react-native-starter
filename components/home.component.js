@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { View,Text } from 'react-native';
 import Presentational from './presentational.component';
-
+import ListComp from './list.component';
 
 export default class Home extends Component{
     constructor(props){
@@ -16,8 +16,9 @@ export default class Home extends Component{
     
     render(){
         return (
-            <View>
+            <View style={{flex: 1}}>
                 <Presentational updateState={this.updateState} myState={this.state.myState} />
+                <ListComp style={{flex: 1}}/>
             </View>
         );
     }
