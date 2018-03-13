@@ -1,8 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
-import { View,Text } from 'react-native';
+import { View,Text, ScrollView, StyleSheet } from 'react-native';
 import Presentational from './presentational.component';
 import ListComp from './list.component';
+import Inputs from "./inputs.component";
 
 export default class Home extends Component{
     constructor(props){
@@ -16,10 +17,19 @@ export default class Home extends Component{
     
     render(){
         return (
-            <View style={{flex: 1}}>
-                <Presentational updateState={this.updateState} myState={this.state.myState} />
-                <ListComp style={{flex: 1}}/>
-            </View>
+            <ScrollView style={{flex: 1}}>
+                <Inputs style={styles.container} />
+                <Presentational style={styles.container} updateState={this.updateState} myState={this.state.myState} />
+                <ListComp style={{flex: 1}} style={styles.container} />
+            </ScrollView>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        borderColor: "black",
+        borderWidth: 2,
+        margin: 2
+    }
+});
